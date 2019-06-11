@@ -6,7 +6,11 @@
  *
  */
 
-import { createAppContainer, createStackNavigator } from "react-navigation";
+import {
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator
+} from "react-navigation";
 
 import Home from "~/pages/Home";
 
@@ -14,7 +18,7 @@ import Home from "~/pages/Home";
 import { colors } from "~/styles";
 
 const Routes = createAppContainer(
-  createStackNavigator(
+  createSwitchNavigator(
     {
       Home
     },
