@@ -1,13 +1,7 @@
 const INITIAL_STATE = {
   modalVisible: false,
-  markers: [
-    {
-      id: 0,
-      latlng: [{ latitude: -27.2177659, longitude: -49.6451598 }],
-      title: "",
-      description: ""
-    }
-  ]
+  error: false,
+  markers: []
 };
 
 export default function markLocation(state = INITIAL_STATE, action) {
@@ -15,21 +9,27 @@ export default function markLocation(state = INITIAL_STATE, action) {
     case "PLACE_MARKER":
       return {
         markers: [
-          ...state.markers
-          //   action.payload.marker,  <<< Olhar aqui e criar Actions
-          // {
-          //   id: Math.random(),
-          //   latlng: [
-          //     {
-          //       latitude: action.coordinate.latitude,
-          //       longitude: action.coordinate.longitude
-          //     }
-          //   ],
-          //   title: `Marcador NOVO `,
-          //   description: "descrição"
-          // }
+          ...state.markers,
+          {
+            id: Math.random(),
+            latlng: [
+              {
+                latitude: action.payload.marker[0].latlng.latitude,
+                longitude: action.payload.marker[0].latlng.longitude
+              }
+            ],
+            title: action.payload.marker[0].username,
+            avatar: action.payload.marker[1].avatar_url,
+            description: action.payload.marker[1].bio
+          }
         ]
       };
+
+    case "MODAL":
+      return { ...state, modalVisible: action.payload.change };
+
+    case "ERROR":
+      return { ...state, error: action.payload.error };
 
     default:
       return state;

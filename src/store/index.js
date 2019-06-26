@@ -6,13 +6,15 @@ import rootSaga from "~/store/sagas";
 
 const middlewares = [];
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMonitor = console.tron.createSagaMonitor();
+
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
 middlewares.push(sagaMiddleware);
 
 const composer = compose(
-  applyMiddleware(...middlewares)
-  // console.tron.createEnhancer()
+  applyMiddleware(...middlewares),
+  console.tron.createEnhancer()
 );
 
 const store = createStore(rootReducer, composer);

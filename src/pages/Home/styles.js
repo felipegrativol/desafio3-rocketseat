@@ -1,3 +1,10 @@
+/**
+ * Desafio 3 - RocketSeat
+ * Home Page Style
+ *
+ * @author Luiz Felipe H. Grativol
+ *
+ */
 import { StyleSheet, Dimensions } from "react-native";
 import { metrics, colors } from "~/styles";
 import {
@@ -12,7 +19,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject
   },
   container: {
-    //...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFillObject,
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
@@ -33,14 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.darkTransparent
-    // width: metrics.screenWidth,
-    // height: metrics.screenHeight - 100,
-    //width: wp("100.0%"),
-    //height: hp("17%")
-
-    // marginLeft: metrics.screenWidth / 2
-    //marginVertical: metrics.screenHeight / 4,
-    // padding: metrics.basePadding
   },
   ModalInsideView: {
     flexDirection: "column",
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowColor: colors.black,
     padding: metrics.basePadding
-    // marginHorizontal: metrics.screenWidth / 4
   },
   box: {
     flexDirection: "column",
@@ -72,7 +70,6 @@ const styles = StyleSheet.create({
     borderColor: colors.lighter,
     borderRadius: metrics.baseRadius,
     borderWidth: 1,
-    // padding: metrics.basePadding - 2,
     paddingHorizontal: metrics.basePadding,
     alignItems: "center",
     justifyContent: "center",
@@ -85,7 +82,6 @@ const styles = StyleSheet.create({
     borderColor: colors.green,
     borderRadius: metrics.baseRadius,
     borderWidth: 1,
-    //padding: metrics.basePadding,
     paddingHorizontal: metrics.basePadding,
     alignItems: "center",
     justifyContent: "center",
@@ -116,6 +112,33 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseRadius,
     margin: metrics.baseMargin,
     fontSize: 16
+  },
+  markerImage: {
+    height: 40,
+    width: 40,
+    borderRadius: 30,
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 3
+  },
+  markerBox: {
+    backgroundColor: colors.white,
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  markerPoint: {
+    height: 60,
+    width: 60,
+    position: "relative"
+  },
+  error: {
+    fontWeight: "bold",
+    color: colors.danger,
+    fontSize: 15
   }
 });
 
